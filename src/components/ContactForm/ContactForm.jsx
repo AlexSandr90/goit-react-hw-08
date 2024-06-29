@@ -4,7 +4,6 @@ import CustomButton from '../CustomButton/CustomButton';
 import { useId } from 'react';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contactsOps';
 
 const ContactFormSchema = Yup.object().shape({
   name: Yup.string()
@@ -33,7 +32,7 @@ const ContactForm = () => {
   const numberId = useId();
 
   const handleSubmit = (values, { resetForm }) => {
-    dispatch(addContact({ id: Date.now().toString(), ...values }));
+    // dispatch(addContact({ id: Date.now().toString(), ...values }));
     resetForm();
   };
 

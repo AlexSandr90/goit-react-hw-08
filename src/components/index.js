@@ -1,5 +1,9 @@
 export { default as App } from './App/App';
+export { default as AppBar } from './AppBar/AppBar';
+export { default as Layout } from './Layout/Layout';
 export { default as Contact } from './Contact/Contact';
 export { default as SearchBox } from './SearchBox/SearchBox';
 export { default as ContactForm } from './ContactForm/ContactForm';
 export { default as ContactList } from './ContactList/ContactList';
+export { default as CustomButton } from './CustomButton/CustomButton';
+export { default as RestrictedRoute } from './RestrictedRoute/RestrictedRoute';

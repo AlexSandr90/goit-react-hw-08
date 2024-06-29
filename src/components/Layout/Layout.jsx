@@ -1,8 +1,15 @@
 import React from 'react';
 import classes from './Layout.module.css';
+import AppBar from '../AppBar/AppBar';
+import { Outlet } from 'react-router-dom';
 
 const Layout = () => {
-  return <div>Layout</div>;
+  return (
+    <>
+      <AppBar />
+      <Outlet />
+    </>
+  );
 };
 
 export default Layout;

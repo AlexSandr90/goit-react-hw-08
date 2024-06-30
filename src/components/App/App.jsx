@@ -1,24 +1,28 @@
 import './App.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { refreshUser } from '../../redux/auth/operations';
 import { Route, Routes } from 'react-router-dom';
-import { Layout, RestrictedRoute } from '../index';
+import { Layout, RestrictedRoute, PrivateRoute } from '../index';
 import {
   HomePage,
   LoginPage,
   ContactsPage,
   RegistrationPage,
 } from '../../pages';
+import { selectIsRefreshing } from '../../redux/auth/selectors';
 
 const App = () => {
   const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectIsRefreshing);
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  return (
+  return isRefreshing ? (
+    <p>Loading...</p>
+  ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
@@ -26,21 +30,21 @@ const App = () => {
           path="/register"
           element={
             <RestrictedRoute
-              component={<RegistrationPage />}
               redirectTo="/contacts"
+              component={<RegistrationPage />}
             />
           }
         />
         <Route
           path="/login"
           element={
-            <RestrictedRoute component={<LoginPage />} redirectTo="/contacts" />
+            <RestrictedRoute redirectTo="/contacts" component={<LoginPage />} />
           }
         />
         <Route
           path="/contacts"
           element={
-            <RestrictedRoute component={<ContactsPage />} redirectTo="/login" />
+            <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
           }
         />
       </Route>
@@ -49,16 +53,3 @@ const App = () => {
 };
 
 export default App;
-
-// useEffect(() => {
-//   dispatch(fetchContacts());
-// }, [dispatch]);
-
-// return (
-//   <>
-//     <h1>Phonebook</h1>
-//     <ContactForm />
-//     <SearchBox />
-//     <ContactList />
-//   </>
-// );

@@ -8,10 +8,10 @@ import AuthNav from '../AuthNav/AuthNav';
 const AppBar = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
-    <div className={css.appBar}>
+    <header className={css.appBar}>
       <Navigation />
       {isLoggedIn ? <UserMenu /> : <AuthNav />}
-    </div>
+    </header>
   );
 };
 

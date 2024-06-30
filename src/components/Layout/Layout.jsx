@@ -1,4 +1,3 @@
-import React from 'react';
 import classes from './Layout.module.css';
 import AppBar from '../AppBar/AppBar';
 import { Outlet } from 'react-router-dom';

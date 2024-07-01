@@ -9,8 +9,7 @@ const getClassName = ({ isActive }) => clsx(css.link, isActive && css.active);
 const Navigation = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
-    <nav>
-      <ul>
+    <nav className={css.navigation}>
         <li>
           <NavLink className={getClassName} to={'/'}>
             Home
@@ -23,7 +22,6 @@ const Navigation = () => {
             </NavLink>
           </li>
         )}
-      </ul>
     </nav>
   );
 };

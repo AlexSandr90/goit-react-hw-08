@@ -1,8 +1,9 @@
 import { ContactForm, ContactList, SearchBox } from '../../components';
+import css from './ContactsPage.module.css'
 
 const ContactsPage = () => {
   return (
-    <div>
+    <div className={css.contactsPage}>
       <h1>ContactsPage</h1>
       <ContactForm />
       <SearchBox />

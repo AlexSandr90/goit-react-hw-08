@@ -11,6 +11,7 @@ import {
   RegistrationPage,
 } from '../../pages';
 import { selectIsRefreshing } from '../../redux/auth/selectors';
+import { CircularProgress } from '@mui/material';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <p>Loading...</p>
+    <CircularProgress />
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>

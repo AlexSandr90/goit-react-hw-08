@@ -1,26 +1,12 @@
-import { useDispatch } from 'react-redux';
-import { login } from '../../redux/auth/operations';
-import { Field, Form, Formik } from 'formik';
-import { useId } from 'react';
+import { LoginForm } from '../../components';
+import css from './LoginPage.module.css';
 
 const LoginPage = () => {
-  const dispatch = useDispatch();
-  const emailId = useId();
-  const passwordId = useId();
-
-  const handleSubmit = (value) => {
-    dispatch(login(value));
-  };
   return (
-    <Formik initialValues={{ email: '', password: '' }} onSubmit={handleSubmit}>
-      <Form>
-        <label htmlFor={emailId}>Email: </label>
-        <Field id={emailId} type="email" name="email" />
-        <label htmlFor={passwordId}>Password: </label>
-        <Field id={passwordId} type="password" name="password" />
-        <button type="submit">Login</button>
-      </Form>
-    </Formik>
+    <div className={css.loginPage}>
+      <h1>Login</h1>
+      <LoginForm />
+    </div>
   );
 };
 

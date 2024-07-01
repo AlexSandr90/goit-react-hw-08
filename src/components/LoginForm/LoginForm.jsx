@@ -1,27 +1,22 @@
-import css from './RegistrationForm.module.css';
-import { useDispatch } from 'react-redux';
 import { Field, Form, Formik } from 'formik';
 import { useId } from 'react';
-import { register } from '../../redux/auth/operations';
+import { useDispatch } from 'react-redux';
+import { login } from '../../redux/auth/operations';
+import css from './LoginForm.module.css';
 import { Button } from '@mui/material';
 
-const RegistrationForm = () => {
+const LoginForm = () => {
   const dispatch = useDispatch();
-  const nameId = useId();
   const emailId = useId();
   const passwordId = useId();
 
-  const handleSubmit = (values) => {
-    dispatch(register(values));
+  const handleSubmit = (value) => {
+    dispatch(login(value));
   };
+
   return (
-    <Formik
-      initialValues={{ name: '', email: '', password: '' }}
-      onSubmit={handleSubmit}
-    >
-      <Form className={css.regForm}>
-        <label htmlFor={nameId}>Name: </label>
-        <Field id={nameId} type="text" name="name" className={css.textField} />
+    <Formik initialValues={{ email: '', password: '' }} onSubmit={handleSubmit}>
+      <Form className={css.loginForm}>
         <label htmlFor={emailId}>Email: </label>
         <Field
           id={emailId}
@@ -29,6 +24,7 @@ const RegistrationForm = () => {
           name="email"
           className={css.textField}
         />
+
         <label htmlFor={passwordId}>Password: </label>
         <Field
           id={passwordId}
@@ -36,11 +32,13 @@ const RegistrationForm = () => {
           name="password"
           className={css.textField}
         />
+
         <Button type="submit" variant="contained" className={css.btn}>
-          Register
+          Login
         </Button>
       </Form>
     </Formik>
   );
 };
-export default RegistrationForm;
+
+export default LoginForm;

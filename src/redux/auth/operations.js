@@ -33,15 +33,7 @@ export const login = createAsyncThunk(
 
 export const logout = createAsyncThunk(
   'auth/logout',
-  async (_, { getState, rejectWithValue }) => {
-    const state = getState();
-    const token = state.auth.token;
-
-    if (!token) {
-      return rejectWithValue('No token found');
-    }
-
-    setAuthHeader(token);
+  async (_, { rejectWithValue }) => {
     try {
       await axios.post('/users/logout');
       clearAuthHeader();

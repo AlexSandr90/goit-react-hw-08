@@ -1,9 +1,10 @@
-import classes from './Contact.module.css';
-import { BsFillPersonFill, BsTelephoneFill } from 'react-icons/bs';
+import css from './Contact.module.css';
+import { BsTelephoneFill } from 'react-icons/bs';
 import PropTypes from 'prop-types';
-import CustomButton from '../CustomButton/CustomButton';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from '../../redux/contacts/operations';
+import { Avatar, Button } from '@mui/material';
+import { stringAvatar } from '../../utils/utils';
 
 const Contact = ({ id, name, number }) => {
   const dispatch = useDispatch();
@@ -14,20 +15,19 @@ const Contact = ({ id, name, number }) => {
 
   return (
     <>
-      <div className={classes.contactInfo}>
+      <div className={css.contactInfo}>
         <div>
-          <BsFillPersonFill />
+          <Avatar {...stringAvatar(name)} />
           <span>{name}</span>
         </div>
-        <div>
-          <BsTelephoneFill />
+        <div className={css.phoneBlock}>
+          <BsTelephoneFill className={css.phone} />
           <span>{number}</span>
         </div>
       </div>
-      <CustomButton
-        buttonText={'Delete'}
-        onClick={() => handleDeleteContact(id)}
-      />
+      <Button variant="outlined" onClick={() => handleDeleteContact(id)} className={css.btn}>
+        Delete
+      </Button>
     </>
   );
 };

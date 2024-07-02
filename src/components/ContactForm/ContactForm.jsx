@@ -1,10 +1,11 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import classes from './ContactForm.module.css';
-import CustomButton from '../CustomButton/CustomButton';
+import css from './ContactForm.module.css';
 import { useId } from 'react';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { addContact } from '../../redux/contacts/operations';
+import { Button } from '@mui/material';
+
 
 const ContactFormSchema = Yup.object().shape({
   name: Yup.string()
@@ -43,26 +44,32 @@ const ContactForm = () => {
       onSubmit={handleSubmit}
       validationSchema={ContactFormSchema}
     >
-      <Form className={classes.contactForm}>
-        <div className={classes.contactForm_Item}>
+      <Form className={css.contactForm}>
+        <div className={css.contactForm_Item}>
           <label htmlFor={nameId}>Name</label>
           <Field type="text" name="name" id={nameId} />
           <ErrorMessage
             name="name"
             component="span"
-            className={classes.error}
+            className={css.error}
           />
         </div>
-        <div className={classes.contactForm_Item}>
+        <div className={css.contactForm_Item}>
           <label htmlFor={numberId}>Number</label>
           <Field type="text" name="number" id={numberId} />
           <ErrorMessage
             name="number"
             component="span"
-            className={classes.error}
+            className={css.error}
           />
         </div>
-        <CustomButton type="submit" buttonText={'Add Contact'} />
+        <Button
+          type="submit"
+          variant="outlined"
+          className={css.btn}
+        >
+          Add Contact
+        </Button>
       </Form>
     </Formik>
   );

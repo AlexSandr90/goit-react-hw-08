@@ -9,7 +9,6 @@ export { default as LoginForm } from './LoginForm/LoginForm';
 export { default as Navigation } from './Navigation/Navigation';
 export { default as ContactForm } from './ContactForm/ContactForm';
 export { default as ContactList } from './ContactList/ContactList';
-export { default as CustomButton } from './CustomButton/CustomButton';
 export { default as PrivateRoute } from './PrivateRoute/PrivateRoute';
 export { default as RestrictedRoute } from './RestrictedRoute/RestrictedRoute';
 export { default as RegistrationForm } from './RegistrationForm/RegistrationForm';

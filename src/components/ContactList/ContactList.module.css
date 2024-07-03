@@ -8,10 +8,10 @@
 
 .contact {
     display: flex;
-    width: 250px;
+    width: 450px;
     padding: 20px;
     justify-content: space-between;
     align-items: center;
-    border: 2px solid #000;
+    border: 1px solid #5f85b1;
     border-radius: 8px;
 }

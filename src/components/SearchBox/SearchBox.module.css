@@ -2,8 +2,13 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
-    border: 2px solid #000;
+    border: 1px solid #5f85b1;
     border-radius: 8px;
-    margin-top: 16px;
-    width: 300px;
+    /* margin-top: 16px; */
+    width: 450px;
+    row-gap: 7px;
+}
+
+.searchInput {
+    height: 30px;
 }

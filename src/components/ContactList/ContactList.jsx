@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import Contact from '../Contact/Contact';
-import classes from './ContactList.module.css';
+import css from './ContactList.module.css';
 import {
   selectError,
   selectLoading,
@@ -23,11 +23,11 @@ const ContactList = () => {
     <>
       {loading && <p>Loading...</p>}
       {error && <p>Error</p>}
-      <ul className={classes.contactList}>
+      <ul className={css.contactList}>
         {Array.isArray(contacts) &&
           contacts?.map((contact) => {
             return (
-              <li className={classes.contact} key={contact.id}>
+              <li className={css.contact} key={contact.id}>
                 <Contact {...contact} />
               </li>
             );

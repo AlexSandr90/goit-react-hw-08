@@ -6,7 +6,6 @@ import { useDispatch } from 'react-redux';
 import { addContact } from '../../redux/contacts/operations';
 import { Button } from '@mui/material';
 
-
 const ContactFormSchema = Yup.object().shape({
   name: Yup.string()
     .min(2, 'Too Short!')
@@ -47,27 +46,25 @@ const ContactForm = () => {
       <Form className={css.contactForm}>
         <div className={css.contactForm_Item}>
           <label htmlFor={nameId}>Name</label>
-          <Field type="text" name="name" id={nameId} />
-          <ErrorMessage
+          <Field
+            type="text"
             name="name"
-            component="span"
-            className={css.error}
+            id={nameId}
+            className={css.contactField}
           />
+          <ErrorMessage name="name" component="span" className={css.error} />
         </div>
         <div className={css.contactForm_Item}>
           <label htmlFor={numberId}>Number</label>
-          <Field type="text" name="number" id={numberId} />
-          <ErrorMessage
+          <Field
+            type="text"
             name="number"
-            component="span"
-            className={css.error}
+            id={numberId}
+            className={css.contactField}
           />
+          <ErrorMessage name="number" component="span" className={css.error} />
         </div>
-        <Button
-          type="submit"
-          variant="outlined"
-          className={css.btn}
-        >
+        <Button type="submit" variant="contained" className={css.btn}>
           Add Contact
         </Button>
       </Form>

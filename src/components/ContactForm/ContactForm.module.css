@@ -4,14 +4,20 @@
     row-gap: 15px;
 
     padding: 20px;
-    border: 2px solid #000;
+    border: 1px solid #5f85b1;
     border-radius: 8px;
-    width: 300px;
+    width: 450px;
 }
 
 .contactForm_Item {
     display: flex;
     flex-direction: column;
+    row-gap: 5px;
+}
+
+
+.contactField {
+    height: 30px;
 }
 
 .error {
@@ -19,7 +25,8 @@
 }
 
 button.btn {
-    height: 30px;
-    color: #000;
+    max-width: 180px;
+    height: 40px;
+    color: #fff;
     /* border-color: #000; */
 }

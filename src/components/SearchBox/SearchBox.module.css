@@ -6,9 +6,16 @@
     border-radius: 8px;
     /* margin-top: 16px; */
     width: 450px;
-    row-gap: 7px;
+    row-gap: 15px;
+}
+
+.searchLine {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
 }
 
 .searchInput {
     height: 30px;
 }
+
